@@ -1,3 +1,5 @@
 {
-  
+  "CRAWLER-TURBOTURN_METER.title": "Turboturn Meter",
+  "CRAWLER-TURBOTURN_METER.description": "At the start of your turn, your chain resets to 1x. Playing the next cost in ascending order increases the multiplier by 1. If you miss the next cost, that card resolves at 1x and starts a new chain. Auto-played cards do not update the chain. The multiplier affects starter card damage, Block, draw, Weak, and Doom.",
+  "CRAWLER-TURBOTURN_METER.flavor": "A jittering counter that ticks faster when the rhythm holds."
 }

@@ -1,5 +1,6 @@
 using Crawler.Mod.Character;
 using Crawler.Mod.Cards;
+using Crawler.Mod.Relics;
 using MegaCrit.Sts2.Core.Models;
 
 namespace Crawler.Mod.Adapters;
@@ -18,5 +19,6 @@ public sealed class ModelRegistrationAdapter
         ModelDb.Inject(typeof(HeavySwing));
         ModelDb.Inject(typeof(PocketWatch));
         ModelDb.Inject(typeof(BadOmen));
+        ModelDb.Inject(typeof(TurboturnMeter));
     }
 }

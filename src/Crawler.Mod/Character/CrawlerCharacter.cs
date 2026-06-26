@@ -3,6 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using Crawler.Mod.Adapters;
 using Crawler.Mod.Cards;
 using Crawler.Mod.Extensions;
+using Crawler.Mod.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -39,7 +40,7 @@ public sealed class CrawlerCharacter : PlaceholderCharacterModel
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<TurboturnMeter>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<CrawlerCardPool>();

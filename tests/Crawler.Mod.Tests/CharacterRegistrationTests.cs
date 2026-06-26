@@ -47,7 +47,8 @@ public sealed class CharacterRegistrationTests
         Assert.Contains("ModelDb.Card<HeavySwing>()", characterText);
         Assert.Contains("ModelDb.Card<PocketWatch>()", characterText);
         Assert.Contains("ModelDb.Card<BadOmen>()", characterText);
-        Assert.Contains("ModelDb.Relic<BurningBlood>()", characterText);
+        Assert.Contains("ModelDb.Relic<TurboturnMeter>()", characterText);
+        Assert.DoesNotContain("ModelDb.Relic<BurningBlood>()", characterText);
         Assert.Contains("ModelDb.CardPool<CrawlerCardPool>()", characterText);
         Assert.Contains("ModelDb.RelicPool<CrawlerRelicPool>()", characterText);
         Assert.Contains("ModelDb.PotionPool<CrawlerPotionPool>()", characterText);

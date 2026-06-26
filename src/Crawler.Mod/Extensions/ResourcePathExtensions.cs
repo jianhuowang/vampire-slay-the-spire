@@ -23,4 +23,14 @@ public static class ResourcePathExtensions
     {
         return Path.Join(MainFile.ResPath, "images", "card_portraits", "big", path);
     }
+
+    public static string RelicImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "relics", path);
+    }
+
+    public static string BigRelicImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "relics", "big", path);
+    }
 }
