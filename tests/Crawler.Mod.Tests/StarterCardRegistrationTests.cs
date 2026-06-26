@@ -191,7 +191,7 @@ public sealed class StarterCardRegistrationTests
     }
 
     [Fact]
-    public void EnglishLocalizationShowsStarterCardUpgradeNumbers()
+    public void EnglishLocalizationUsesUpgradeSwapMarkersForStarterCards()
     {
         var localizationPath = Path.Combine(
             RepositoryRoot.FullName,
@@ -203,12 +203,13 @@ public sealed class StarterCardRegistrationTests
             "cards.json");
         var localizationText = File.ReadAllText(localizationPath);
 
-        Assert.Contains("Upgrade: 7 damage.", localizationText);
-        Assert.Contains("Upgrade: 10 damage and 2 Weak.", localizationText);
-        Assert.Contains("Upgrade: 10 Block.", localizationText);
-        Assert.Contains("Upgrade: 18 damage.", localizationText);
-        Assert.Contains("Upgrade: Draw 2 cards.", localizationText);
-        Assert.Contains("Upgrade: Apply 2 Doom.", localizationText);
+        Assert.DoesNotContain("Upgrade:", localizationText);
+        Assert.Contains("Deal -5-+7+ damage.", localizationText);
+        Assert.Contains("Deal -8-+10+ damage. Apply -1-+2+ Weak.", localizationText);
+        Assert.Contains("Gain -7-+10+ Block.", localizationText);
+        Assert.Contains("Deal -14-+18+ damage.", localizationText);
+        Assert.Contains("Draw -1 card-+2 cards+.", localizationText);
+        Assert.Contains("Apply -1-+2+ Doom.", localizationText);
     }
 
     private static DirectoryInfo FindRepositoryRoot()

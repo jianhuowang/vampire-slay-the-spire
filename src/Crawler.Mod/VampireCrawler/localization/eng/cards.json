@@ -1,14 +1,14 @@
 {
   "CRAWLER-QUICK_STAB.title": "Quick Stab",
-  "CRAWLER-QUICK_STAB.description": "Deal 5 damage. Chain multiplier applies. Upgrade: 7 damage.",
+  "CRAWLER-QUICK_STAB.description": "Deal -5-+7+ damage. Chain multiplier applies.",
   "CRAWLER-WHIP_CRACK.title": "Whip Crack",
-  "CRAWLER-WHIP_CRACK.description": "Deal 8 damage. Apply 1 Weak. Chain multiplier applies. Upgrade: 10 damage and 2 Weak.",
+  "CRAWLER-WHIP_CRACK.description": "Deal -8-+10+ damage. Apply -1-+2+ Weak. Chain multiplier applies.",
   "CRAWLER-GUARDED_DASH.title": "Guarded Dash",
-  "CRAWLER-GUARDED_DASH.description": "Gain 7 Block. Chain multiplier applies. Upgrade: 10 Block.",
+  "CRAWLER-GUARDED_DASH.description": "Gain -7-+10+ Block. Chain multiplier applies.",
   "CRAWLER-HEAVY_SWING.title": "Heavy Swing",
-  "CRAWLER-HEAVY_SWING.description": "Deal 14 damage. Chain multiplier applies. Upgrade: 18 damage.",
+  "CRAWLER-HEAVY_SWING.description": "Deal -14-+18+ damage. Chain multiplier applies.",
   "CRAWLER-POCKET_WATCH.title": "Pocket Watch",
-  "CRAWLER-POCKET_WATCH.description": "Draw 1 card. Chain multiplier applies. Upgrade: Draw 2 cards.",
+  "CRAWLER-POCKET_WATCH.description": "Draw -1 card-+2 cards+. Chain multiplier applies.",
   "CRAWLER-BAD_OMEN.title": "Bad Omen",
-  "CRAWLER-BAD_OMEN.description": "Apply 1 Doom. Chain multiplier applies. Upgrade: Apply 2 Doom."
+  "CRAWLER-BAD_OMEN.description": "Apply -1-+2+ Doom. Chain multiplier applies."
 }
