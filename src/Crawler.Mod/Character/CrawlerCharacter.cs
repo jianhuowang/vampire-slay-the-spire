@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Crawler.Mod.Cards;
 using Crawler.Mod.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -21,16 +22,16 @@ public sealed class CrawlerCharacter : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<QuickStab>(),
+        ModelDb.Card<QuickStab>(),
+        ModelDb.Card<WhipCrack>(),
+        ModelDb.Card<WhipCrack>(),
+        ModelDb.Card<GuardedDash>(),
+        ModelDb.Card<GuardedDash>(),
+        ModelDb.Card<HeavySwing>(),
+        ModelDb.Card<PocketWatch>(),
+        ModelDb.Card<BadOmen>(),
+        ModelDb.Card<BadOmen>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

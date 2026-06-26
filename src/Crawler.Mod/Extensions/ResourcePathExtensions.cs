@@ -13,4 +13,14 @@ public static class ResourcePathExtensions
     {
         return Path.Join(MainFile.ResPath, "images", "charui", path);
     }
+
+    public static string CardImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "card_portraits", path);
+    }
+
+    public static string BigCardImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "card_portraits", "big", path);
+    }
 }

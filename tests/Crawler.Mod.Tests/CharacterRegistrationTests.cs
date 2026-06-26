@@ -41,7 +41,12 @@ public sealed class CharacterRegistrationTests
         Assert.Contains("PlaceholderCharacterModel", characterText);
         Assert.Contains("CharacterId = \"VampireCrawler.TheCrawler\"", characterText);
         Assert.Contains("StartingHp => 70", characterText);
-        Assert.Contains("ModelDb.Card<StrikeIronclad>()", characterText);
+        Assert.Contains("ModelDb.Card<QuickStab>()", characterText);
+        Assert.Contains("ModelDb.Card<WhipCrack>()", characterText);
+        Assert.Contains("ModelDb.Card<GuardedDash>()", characterText);
+        Assert.Contains("ModelDb.Card<HeavySwing>()", characterText);
+        Assert.Contains("ModelDb.Card<PocketWatch>()", characterText);
+        Assert.Contains("ModelDb.Card<BadOmen>()", characterText);
         Assert.Contains("ModelDb.Relic<BurningBlood>()", characterText);
         Assert.Contains("ModelDb.CardPool<CrawlerCardPool>()", characterText);
         Assert.Contains("ModelDb.RelicPool<CrawlerRelicPool>()", characterText);
