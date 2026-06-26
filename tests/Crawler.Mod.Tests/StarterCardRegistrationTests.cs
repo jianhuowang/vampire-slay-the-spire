@@ -61,6 +61,35 @@ public sealed class StarterCardRegistrationTests
     }
 
     [Fact]
+    public void StarterCardsImplementTheirPrintedEffects()
+    {
+        var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "StarterCards.cs");
+        var cardsText = File.ReadAllText(cardsPath);
+
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, 5);", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, 8);", cardsText);
+        Assert.Contains("await GainBlock(cardPlay, 7);", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, 14);", cardsText);
+        Assert.Contains("await DrawCards(choiceContext, 1);", cardsText);
+        Assert.Contains("await ApplyWeak(choiceContext, cardPlay, 1);", cardsText);
+        Assert.Contains("await ApplyDoom(choiceContext, cardPlay, 1);", cardsText);
+    }
+
+    [Fact]
+    public void CrawlerCardBaseProvidesEffectCommandHelpers()
+    {
+        var cardPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "CrawlerCard.cs");
+        var cardText = File.ReadAllText(cardPath);
+
+        Assert.Contains("CreatureCmd.Damage", cardText);
+        Assert.Contains("CreatureCmd.GainBlock", cardText);
+        Assert.Contains("CardPileCmd.Draw", cardText);
+        Assert.Contains("PowerCmd.Apply<WeakPower>", cardText);
+        Assert.Contains("PowerCmd.Apply<DoomPower>", cardText);
+        Assert.Contains("RequireTarget(cardPlay)", cardText);
+    }
+
+    [Fact]
     public void EnglishLocalizationDefinesStarterCardKeys()
     {
         var localizationPath = Path.Combine(
