@@ -19,6 +19,9 @@ public sealed class ModelRegistrationAdapter
         ModelDb.Inject(typeof(HeavySwing));
         ModelDb.Inject(typeof(PocketWatch));
         ModelDb.Inject(typeof(BadOmen));
+        ModelDb.Inject(typeof(BloodTap));
+        ModelDb.Inject(typeof(SanguineGuard));
+        ModelDb.Inject(typeof(MawStrike));
         ModelDb.Inject(typeof(TurboturnMeter));
     }
 }

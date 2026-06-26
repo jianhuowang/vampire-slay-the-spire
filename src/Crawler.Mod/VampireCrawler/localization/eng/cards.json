@@ -10,5 +10,11 @@
   "CRAWLER-POCKET_WATCH.title": "Pocket Watch",
   "CRAWLER-POCKET_WATCH.description": "Draw -1 card-+2 cards+. Chain multiplier applies.",
   "CRAWLER-BAD_OMEN.title": "Bad Omen",
-  "CRAWLER-BAD_OMEN.description": "Apply -1-+2+ Doom. Chain multiplier applies."
+  "CRAWLER-BAD_OMEN.description": "Apply -1-+2+ Doom. Chain multiplier applies.",
+  "CRAWLER-BLOOD_TAP.title": "Blood Tap",
+  "CRAWLER-BLOOD_TAP.description": "Draw -1 card-+2 cards+. Chain multiplier applies.",
+  "CRAWLER-SANGUINE_GUARD.title": "Sanguine Guard",
+  "CRAWLER-SANGUINE_GUARD.description": "Gain -6-+9+ Block. Chain multiplier applies.",
+  "CRAWLER-MAW_STRIKE.title": "Maw Strike",
+  "CRAWLER-MAW_STRIKE.description": "Deal -12-+16+ damage. Apply -1-+2+ Doom. Chain multiplier applies."
 }

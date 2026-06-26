@@ -175,7 +175,7 @@ public sealed class StarterCardRegistrationTests
     }
 
     [Fact]
-    public void EnglishLocalizationExplainsStarterCardsUseChainMultiplier()
+    public void EnglishLocalizationExplainsCrawlerCardsUseChainMultiplier()
     {
         var localizationPath = Path.Combine(
             RepositoryRoot.FullName,
@@ -187,7 +187,7 @@ public sealed class StarterCardRegistrationTests
             "cards.json");
         var localizationText = File.ReadAllText(localizationPath);
 
-        Assert.Equal(6, CountOccurrences(localizationText, "Chain multiplier applies."));
+        Assert.Equal(9, CountOccurrences(localizationText, "Chain multiplier applies."));
     }
 
     [Fact]

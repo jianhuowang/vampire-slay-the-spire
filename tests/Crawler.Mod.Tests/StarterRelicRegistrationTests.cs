@@ -82,7 +82,7 @@ public sealed class StarterRelicRegistrationTests
         Assert.Contains("next cost", localizationText);
         Assert.Contains("multiplier", localizationText);
         Assert.Contains("Auto-played", localizationText);
-        Assert.Contains("damage, Block, draw, Weak, and Doom", localizationText);
+        Assert.Contains("Crawler card damage, Block, draw, Weak, and Doom", localizationText);
     }
 
     private static DirectoryInfo FindRepositoryRoot()
