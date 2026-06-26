@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="cards.v1.json" />
+    <EmbeddedResource Include="relics.v1.json" />
   </ItemGroup>
 
   <PropertyGroup>

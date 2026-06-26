@@ -1,0 +1,72 @@
+[
+  {
+    "id": "crawler_turboturn_meter",
+    "name": "Turboturn Meter",
+    "rarity": "Starter",
+    "description": "Shows your current chain multiplier and next cost. The first time each combat you resolve a card at 3x or higher, gain 1 temporary energy.",
+    "tags": ["chain", "energy"]
+  },
+  {
+    "id": "crawler_bloodwick_lantern",
+    "name": "Bloodwick Lantern",
+    "rarity": "Common",
+    "description": "The first time each combat you spend 3 or more blood, draw 1 card.",
+    "tags": ["blood", "draw"]
+  },
+  {
+    "id": "crawler_saltwire_clasp",
+    "name": "Saltwire Clasp",
+    "rarity": "Common",
+    "description": "Whenever you gain temporary energy, gain 1 block.",
+    "tags": ["energy", "block"]
+  },
+  {
+    "id": "crawler_inkvein_charm",
+    "name": "Inkvein Charm",
+    "rarity": "Common",
+    "description": "Your first curse each combat costs 1 less to play.",
+    "tags": ["curse", "cost"]
+  },
+  {
+    "id": "crawler_marrowglass_seed",
+    "name": "Marrowglass Seed",
+    "rarity": "Uncommon",
+    "description": "At the start of combat, if you have no curse cards in hand, gain 2 chain.",
+    "tags": ["chain", "setup"]
+  },
+  {
+    "id": "crawler_ribcage_talisman",
+    "name": "Ribcage Talisman",
+    "rarity": "Uncommon",
+    "description": "The first time each combat you resolve a chain of 4 or more, exhaust 1 random enemy buff.",
+    "tags": ["chain", "debuff"]
+  },
+  {
+    "id": "crawler_waxmoon_brooch",
+    "name": "Waxmoon Brooch",
+    "rarity": "Uncommon",
+    "description": "Whenever you play a 0-cost card, gain 1 blood.",
+    "tags": ["cost", "blood"]
+  },
+  {
+    "id": "crawler_sunless_ambit",
+    "name": "Sunless Ambit",
+    "rarity": "Rare",
+    "description": "At the start of each turn, if your chain is 2 or higher, gain 2 temporary energy.",
+    "tags": ["chain", "energy"]
+  },
+  {
+    "id": "crawler_blackthorn_vial",
+    "name": "Blackthorn Vial",
+    "rarity": "Rare",
+    "description": "Whenever you play a curse, gain 8 block and 1 chain.",
+    "tags": ["curse", "block", "chain"]
+  },
+  {
+    "id": "crawler_nocturne_crown",
+    "name": "Nocturne Crown",
+    "rarity": "Boss",
+    "description": "The first time each combat you resolve a card at 5x or higher, draw 2 cards and gain 1 temporary energy.",
+    "tags": ["chain", "draw", "energy"]
+  }
+]
