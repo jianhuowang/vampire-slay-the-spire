@@ -9,7 +9,7 @@ public sealed class QuickStab() : CrawlerCard(0, CardType.Attack, CardRarity.Bas
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(5, multiplier));
+        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(5, 7), multiplier));
     }
 }
 
@@ -19,8 +19,8 @@ public sealed class WhipCrack() : CrawlerCard(1, CardType.Attack, CardRarity.Bas
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(8, multiplier));
-        await ApplyWeak(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));
+        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(8, 10), multiplier));
+        await ApplyWeak(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(1, 2), multiplier));
     }
 }
 
@@ -30,7 +30,7 @@ public sealed class GuardedDash() : CrawlerCard(1, CardType.Skill, CardRarity.Ba
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await GainBlock(cardPlay, ApplyMultiplier(7, multiplier));
+        await GainBlock(cardPlay, ApplyMultiplier(UpgradeValue(7, 10), multiplier));
     }
 }
 
@@ -40,7 +40,7 @@ public sealed class HeavySwing() : CrawlerCard(2, CardType.Attack, CardRarity.Ba
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(14, multiplier));
+        await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(14, 18), multiplier));
     }
 }
 
@@ -50,7 +50,7 @@ public sealed class PocketWatch() : CrawlerCard(0, CardType.Skill, CardRarity.Ba
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await DrawCards(choiceContext, ApplyMultiplier(1, multiplier));
+        await DrawCards(choiceContext, ApplyMultiplier(UpgradeValue(1, 2), multiplier));
     }
 }
 
@@ -60,6 +60,6 @@ public sealed class BadOmen() : CrawlerCard(1, CardType.Skill, CardRarity.Basic,
     {
         var multiplier = ResolveChainMultiplier(cardPlay);
 
-        await ApplyDoom(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));
+        await ApplyDoom(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(1, 2), multiplier));
     }
 }

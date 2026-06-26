@@ -67,13 +67,27 @@ public sealed class StarterCardRegistrationTests
         var cardsText = File.ReadAllText(cardsPath);
 
         Assert.Equal(6, CountOccurrences(cardsText, "var multiplier = ResolveChainMultiplier(cardPlay);"));
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(5, multiplier));", cardsText);
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(8, multiplier));", cardsText);
-        Assert.Contains("await GainBlock(cardPlay, ApplyMultiplier(7, multiplier));", cardsText);
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(14, multiplier));", cardsText);
-        Assert.Contains("await DrawCards(choiceContext, ApplyMultiplier(1, multiplier));", cardsText);
-        Assert.Contains("await ApplyWeak(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));", cardsText);
-        Assert.Contains("await ApplyDoom(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(5, 7), multiplier));", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(8, 10), multiplier));", cardsText);
+        Assert.Contains("await GainBlock(cardPlay, ApplyMultiplier(UpgradeValue(7, 10), multiplier));", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(14, 18), multiplier));", cardsText);
+        Assert.Contains("await DrawCards(choiceContext, ApplyMultiplier(UpgradeValue(1, 2), multiplier));", cardsText);
+        Assert.Contains("await ApplyWeak(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(1, 2), multiplier));", cardsText);
+        Assert.Contains("await ApplyDoom(choiceContext, cardPlay, ApplyMultiplier(UpgradeValue(1, 2), multiplier));", cardsText);
+    }
+
+    [Fact]
+    public void StarterCardsUseUpgradedValuesWhenUpgraded()
+    {
+        var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "StarterCards.cs");
+        var cardsText = File.ReadAllText(cardsPath);
+
+        Assert.Contains("ApplyMultiplier(UpgradeValue(5, 7), multiplier)", cardsText);
+        Assert.Contains("ApplyMultiplier(UpgradeValue(8, 10), multiplier)", cardsText);
+        Assert.Contains("ApplyMultiplier(UpgradeValue(1, 2), multiplier)", cardsText);
+        Assert.Contains("ApplyMultiplier(UpgradeValue(7, 10), multiplier)", cardsText);
+        Assert.Contains("ApplyMultiplier(UpgradeValue(14, 18), multiplier)", cardsText);
+        Assert.Equal(3, CountOccurrences(cardsText, "ApplyMultiplier(UpgradeValue(1, 2), multiplier)"));
     }
 
     [Fact]
@@ -91,6 +105,16 @@ public sealed class StarterCardRegistrationTests
         Assert.Contains("if (cardPlay.IsAutoPlay)", cardText);
         Assert.Contains("CrawlerChainRuntime.ResolvePlayedCard(Owner, PrintedCost)", cardText);
         Assert.Contains("ApplyMultiplier(decimal value, int multiplier)", cardText);
+    }
+
+    [Fact]
+    public void CrawlerCardBaseProvidesUpgradeValueHelper()
+    {
+        var cardPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "CrawlerCard.cs");
+        var cardText = File.ReadAllText(cardPath);
+
+        Assert.Contains("UpgradeValue(int baseValue, int upgradedValue)", cardText);
+        Assert.Contains("IsUpgraded ? upgradedValue : baseValue", cardText);
     }
 
     [Fact]
@@ -164,6 +188,27 @@ public sealed class StarterCardRegistrationTests
         var localizationText = File.ReadAllText(localizationPath);
 
         Assert.Equal(6, CountOccurrences(localizationText, "Chain multiplier applies."));
+    }
+
+    [Fact]
+    public void EnglishLocalizationShowsStarterCardUpgradeNumbers()
+    {
+        var localizationPath = Path.Combine(
+            RepositoryRoot.FullName,
+            "src",
+            "Crawler.Mod",
+            "VampireCrawler",
+            "localization",
+            "eng",
+            "cards.json");
+        var localizationText = File.ReadAllText(localizationPath);
+
+        Assert.Contains("Upgrade: 7 damage.", localizationText);
+        Assert.Contains("Upgrade: 10 damage and 2 Weak.", localizationText);
+        Assert.Contains("Upgrade: 10 Block.", localizationText);
+        Assert.Contains("Upgrade: 18 damage.", localizationText);
+        Assert.Contains("Upgrade: Draw 2 cards.", localizationText);
+        Assert.Contains("Upgrade: Apply 2 Doom.", localizationText);
     }
 
     private static DirectoryInfo FindRepositoryRoot()

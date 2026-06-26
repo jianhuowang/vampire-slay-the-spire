@@ -84,6 +84,11 @@ public abstract class CrawlerCard(int cost, CardType type, CardRarity rarity, Ta
         return value * multiplier;
     }
 
+    protected int UpgradeValue(int baseValue, int upgradedValue)
+    {
+        return IsUpgraded ? upgradedValue : baseValue;
+    }
+
     private static Creature RequireTarget(CardPlay cardPlay)
     {
         return cardPlay.Target ?? throw new InvalidOperationException("This Crawler card requires a target.");
