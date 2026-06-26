@@ -150,6 +150,22 @@ public sealed class StarterCardRegistrationTests
         }
     }
 
+    [Fact]
+    public void EnglishLocalizationExplainsStarterCardsUseChainMultiplier()
+    {
+        var localizationPath = Path.Combine(
+            RepositoryRoot.FullName,
+            "src",
+            "Crawler.Mod",
+            "VampireCrawler",
+            "localization",
+            "eng",
+            "cards.json");
+        var localizationText = File.ReadAllText(localizationPath);
+
+        Assert.Equal(6, CountOccurrences(localizationText, "Chain multiplier applies."));
+    }
+
     private static DirectoryInfo FindRepositoryRoot()
     {
         var current = new DirectoryInfo(AppContext.BaseDirectory);
