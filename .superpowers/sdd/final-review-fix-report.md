@@ -13,7 +13,7 @@ Commands run and outcomes:
 - `C:\Users\Lenovo\.dotnet\dotnet.exe test Crawler.sln` -> passed, 0 failures.
 
 Commit hash:
-- Pending at report write time; commit created after this report is saved.
+- 71a2bb0
 
 Self-review:
 - Added `Rarity` to the core card model and wired the catalog loader to preserve it from JSON.
