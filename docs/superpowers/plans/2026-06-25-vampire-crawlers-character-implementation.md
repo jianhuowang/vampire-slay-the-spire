@@ -998,7 +998,7 @@ git commit -m "feat: add crawler mod adapter boundary"
 - Consumes: all tasks above.
 - Produces: verified baseline ready for Slay the Spire 2 API-specific registration work.
 
-- [ ] **Step 1: Run full test suite**
+- [x] **Step 1: Run full test suite**
 
 Run:
 
@@ -1008,7 +1008,7 @@ dotnet test Crawler.sln
 
 Expected: all tests pass with `0 Failed`.
 
-- [ ] **Step 2: Run full build**
+- [x] **Step 2: Run full build**
 
 Run:
 
@@ -1018,7 +1018,7 @@ dotnet build Crawler.sln
 
 Expected: build succeeds with `0 Error(s)`.
 
-- [ ] **Step 3: Inspect git status**
+- [x] **Step 3: Inspect git status**
 
 Run:
 
@@ -1028,7 +1028,7 @@ git status --short
 
 Expected: no output.
 
-- [ ] **Step 4: Record next integration target**
+- [x] **Step 4: Record next integration target**
 
 Add this note under the final completed task in the implementation log or PR description:
 
@@ -1036,12 +1036,14 @@ Add this note under the final completed task in the implementation log or PR des
 Next integration target: connect `Crawler.Mod.CrawlerMod.Initialize()` to the current Slay the Spire 2 mod loader entry point, then map `CardDefinition` records into the game's runtime card definitions.
 ```
 
-- [ ] **Step 5: Commit any verification note changes**
+- [x] **Step 5: Commit any verification note changes**
 
 ```powershell
 git add docs/superpowers/plans/2026-06-25-vampire-crawlers-character-implementation.md
 git commit -m "docs: record crawler implementation verification path"
 ```
+
+Next integration target: connect `Crawler.Mod.CrawlerMod.Initialize()` to the current Slay the Spire 2 mod loader entry point, then map `CardDefinition` records into the game's runtime card definitions.
 
 ---
 
