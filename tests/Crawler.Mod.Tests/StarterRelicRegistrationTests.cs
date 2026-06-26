@@ -38,6 +38,30 @@ public sealed class StarterRelicRegistrationTests
     }
 
     [Fact]
+    public void TurboturnMeterShowsCurrentChainMultiplierAsRelicCounter()
+    {
+        var relicPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Relics", "TurboturnMeter.cs");
+        var relicText = File.ReadAllText(relicPath);
+
+        Assert.Contains("public override bool ShowCounter => true;", relicText);
+        Assert.Contains("public override bool ShouldReceiveCombatHooks => true;", relicText);
+        Assert.Contains("public override int DisplayAmount", relicText);
+        Assert.Contains("CrawlerChainRuntime.GetCurrentState(Owner).Multiplier", relicText);
+        Assert.Contains("Math.Max(1,", relicText);
+    }
+
+    [Fact]
+    public void TurboturnMeterRefreshesCounterWhenChainCanChange()
+    {
+        var relicPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Relics", "TurboturnMeter.cs");
+        var relicText = File.ReadAllText(relicPath);
+
+        Assert.Contains("AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)", relicText);
+        Assert.Contains("AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)", relicText);
+        Assert.Contains("InvokeDisplayAmountChanged();", relicText);
+    }
+
+    [Fact]
     public void EnglishLocalizationDefinesTurboturnMeterRules()
     {
         var localizationPath = Path.Combine(
