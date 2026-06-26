@@ -17,7 +17,7 @@ public sealed class ModPackagingTests
         Assert.Equal("VampireCrawler", root.GetProperty("id").GetString());
         Assert.Equal("Vampire Crawlers: The Crawler", root.GetProperty("name").GetString());
         Assert.True(root.GetProperty("has_dll").GetBoolean());
-        Assert.True(root.GetProperty("has_pck").GetBoolean());
+        Assert.False(root.GetProperty("has_pck").GetBoolean());
         Assert.True(root.GetProperty("affects_gameplay").GetBoolean());
 
         var baseLibDependency = root.GetProperty("dependencies")
