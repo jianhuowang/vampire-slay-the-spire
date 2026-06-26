@@ -1,3 +1,16 @@
 {
-  
+  "CRAWLER-CRAWLER_CHARACTER.title": "The Crawler",
+  "CRAWLER-CRAWLER_CHARACTER.titleObject": "the Crawler",
+  "CRAWLER-CRAWLER_CHARACTER.description": "A blood-bound cardfighter who builds power by chaining ascending energy costs.",
+  "CRAWLER-CRAWLER_CHARACTER.pronounObject": "them",
+  "CRAWLER-CRAWLER_CHARACTER.possessiveAdjective": "their",
+  "CRAWLER-CRAWLER_CHARACTER.pronounPossessive": "theirs",
+  "CRAWLER-CRAWLER_CHARACTER.pronounSubject": "they",
+  "CRAWLER-CRAWLER_CHARACTER.goldMonologue": "The Crawler counts the coins, then the pulse behind them.",
+  "CRAWLER-CRAWLER_CHARACTER.eventDeathPrevention": "The chain breaks, but the Crawler refuses to fall.",
+  "CRAWLER-CRAWLER_CHARACTER.aromaPrinciple": "iron",
+  "CRAWLER-CRAWLER_CHARACTER.cardsModifierTitle": "Crawler Cards",
+  "CRAWLER-CRAWLER_CHARACTER.cardsModifierDescription": "Adds the Crawler's cards to rewards.",
+  "CRAWLER-CRAWLER_CHARACTER.banter.alive.endTurnPing": "Keep the chain moving.",
+  "CRAWLER-CRAWLER_CHARACTER.banter.dead.endTurnPing": "..."
 }
