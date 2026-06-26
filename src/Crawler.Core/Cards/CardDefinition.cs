@@ -5,5 +5,6 @@ public sealed record CardDefinition(
     string Name,
     int Cost,
     string Route,
+    string Rarity,
     IReadOnlyList<NumericEffect> Effects,
     IReadOnlyList<string> Tags);

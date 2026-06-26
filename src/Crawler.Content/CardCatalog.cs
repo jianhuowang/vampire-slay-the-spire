@@ -22,6 +22,7 @@ public static class CardCatalog
             record.Name,
             record.Cost,
             record.Route,
+            record.Rarity,
             record.Effects.Select(effect => new NumericEffect(effect.Key, effect.BaseValue, effect.IsMultiplierEligible)).ToArray(),
             record.Tags)).ToArray();
     }

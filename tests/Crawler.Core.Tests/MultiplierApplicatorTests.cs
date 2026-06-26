@@ -12,6 +12,7 @@ public sealed class MultiplierApplicatorTests
             "Burst",
             2,
             "Weapon",
+            "Common",
             new[]
             {
                 new NumericEffect("damage", 6),
@@ -35,6 +36,7 @@ public sealed class MultiplierApplicatorTests
             "Fixed",
             1,
             "Item",
+            "Common",
             new[] { new NumericEffect("createdCards", 2, IsMultiplierEligible: false) },
             Array.Empty<string>());
 
