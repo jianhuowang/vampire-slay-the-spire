@@ -25,6 +25,7 @@ public sealed class TurboturnMeter() : CrawlerRelic
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         InvokeDisplayAmountChanged();
+        Flash();
         return Task.CompletedTask;
     }
 }

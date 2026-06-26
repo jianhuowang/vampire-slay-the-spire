@@ -59,6 +59,7 @@ public sealed class StarterRelicRegistrationTests
         Assert.Contains("AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)", relicText);
         Assert.Contains("AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)", relicText);
         Assert.Contains("InvokeDisplayAmountChanged();", relicText);
+        Assert.Contains("Flash();", relicText);
     }
 
     [Fact]
