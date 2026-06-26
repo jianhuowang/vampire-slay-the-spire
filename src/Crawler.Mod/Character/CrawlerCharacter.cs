@@ -1,9 +1,12 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Crawler.Mod.Adapters;
 using Crawler.Mod.Cards;
 using Crawler.Mod.Extensions;
 using Godot;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
@@ -57,4 +60,10 @@ public sealed class CrawlerCharacter : PlaceholderCharacterModel
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_char_name.png".CharacterUiPath();
+
+    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        CrawlerChainRuntime.ResetTurn(player);
+        return Task.CompletedTask;
+    }
 }

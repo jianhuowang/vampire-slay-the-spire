@@ -66,13 +66,14 @@ public sealed class StarterCardRegistrationTests
         var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "StarterCards.cs");
         var cardsText = File.ReadAllText(cardsPath);
 
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, 5);", cardsText);
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, 8);", cardsText);
-        Assert.Contains("await GainBlock(cardPlay, 7);", cardsText);
-        Assert.Contains("await DealDamage(choiceContext, cardPlay, 14);", cardsText);
-        Assert.Contains("await DrawCards(choiceContext, 1);", cardsText);
-        Assert.Contains("await ApplyWeak(choiceContext, cardPlay, 1);", cardsText);
-        Assert.Contains("await ApplyDoom(choiceContext, cardPlay, 1);", cardsText);
+        Assert.Equal(6, CountOccurrences(cardsText, "var multiplier = ResolveChainMultiplier(cardPlay);"));
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(5, multiplier));", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(8, multiplier));", cardsText);
+        Assert.Contains("await GainBlock(cardPlay, ApplyMultiplier(7, multiplier));", cardsText);
+        Assert.Contains("await DealDamage(choiceContext, cardPlay, ApplyMultiplier(14, multiplier));", cardsText);
+        Assert.Contains("await DrawCards(choiceContext, ApplyMultiplier(1, multiplier));", cardsText);
+        Assert.Contains("await ApplyWeak(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));", cardsText);
+        Assert.Contains("await ApplyDoom(choiceContext, cardPlay, ApplyMultiplier(1, multiplier));", cardsText);
     }
 
     [Fact]
@@ -87,6 +88,31 @@ public sealed class StarterCardRegistrationTests
         Assert.Contains("PowerCmd.Apply<WeakPower>", cardText);
         Assert.Contains("PowerCmd.Apply<DoomPower>", cardText);
         Assert.Contains("RequireTarget(cardPlay)", cardText);
+        Assert.Contains("if (cardPlay.IsAutoPlay)", cardText);
+        Assert.Contains("CrawlerChainRuntime.ResolvePlayedCard(Owner, PrintedCost)", cardText);
+        Assert.Contains("ApplyMultiplier(decimal value, int multiplier)", cardText);
+    }
+
+    [Fact]
+    public void ChainRuntimeTracksStatePerPlayerAndCanReset()
+    {
+        var runtimePath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "CrawlerChainRuntime.cs");
+        var runtimeText = File.ReadAllText(runtimePath);
+
+        Assert.Contains("ConcurrentDictionary<ulong, ChainCombatAdapter>", runtimeText);
+        Assert.Contains("ResolvePlayedCard(Player player, int playedCost)", runtimeText);
+        Assert.Contains("ResetTurn(Player player)", runtimeText);
+        Assert.Contains("player.NetId", runtimeText);
+    }
+
+    [Fact]
+    public void CrawlerCharacterResetsChainAtPlayerTurnStart()
+    {
+        var characterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Character", "CrawlerCharacter.cs");
+        var characterText = File.ReadAllText(characterPath);
+
+        Assert.Contains("AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)", characterText);
+        Assert.Contains("CrawlerChainRuntime.ResetTurn(player);", characterText);
     }
 
     [Fact]
@@ -138,5 +164,18 @@ public sealed class StarterCardRegistrationTests
         }
 
         throw new InvalidOperationException("Could not locate repository root.");
+    }
+
+    private static int CountOccurrences(string text, string value)
+    {
+        var count = 0;
+        var index = 0;
+        while ((index = text.IndexOf(value, index, StringComparison.Ordinal)) >= 0)
+        {
+            count++;
+            index += value.Length;
+        }
+
+        return count;
     }
 }

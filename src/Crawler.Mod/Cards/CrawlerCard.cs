@@ -1,5 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
+using Crawler.Mod.Adapters;
 using Crawler.Mod.Character;
 using Crawler.Mod.Extensions;
 using MegaCrit.Sts2.Core.Commands;
@@ -16,6 +17,8 @@ namespace Crawler.Mod.Cards;
 public abstract class CrawlerCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
+    protected int PrintedCost { get; } = cost;
+
     public override string CustomPortraitPath => "card.png".BigCardImagePath();
     public override string PortraitPath => "card.png".CardImagePath();
     public override string BetaPortraitPath => "card.png".CardImagePath();
@@ -64,6 +67,21 @@ public abstract class CrawlerCard(int cost, CardType type, CardRarity rarity, Ta
             Owner.Creature,
             this,
             silent: false);
+    }
+
+    protected int ResolveChainMultiplier(CardPlay cardPlay)
+    {
+        if (cardPlay.IsAutoPlay)
+        {
+            return 1;
+        }
+
+        return CrawlerChainRuntime.ResolvePlayedCard(Owner, PrintedCost).AppliedMultiplier;
+    }
+
+    protected static decimal ApplyMultiplier(decimal value, int multiplier)
+    {
+        return value * multiplier;
     }
 
     private static Creature RequireTarget(CardPlay cardPlay)
