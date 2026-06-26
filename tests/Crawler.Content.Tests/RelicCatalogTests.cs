@@ -8,9 +8,14 @@ public sealed class RelicCatalogTests
     public void V1CatalogHasStartingRelicAndCharacterRelics()
     {
         var relics = RelicCatalog.LoadV1();
+        var rarities = relics.GroupBy(relic => relic.Rarity).ToDictionary(group => group.Key, group => group.Count());
 
+        Assert.Equal(10, relics.Count);
         Assert.Single(relics, relic => relic.Rarity == "Starter");
-        Assert.InRange(relics.Count(relic => relic.Rarity != "Starter"), 8, 12);
+        Assert.Equal(3, rarities["Common"]);
+        Assert.Equal(3, rarities["Uncommon"]);
+        Assert.Equal(2, rarities["Rare"]);
+        Assert.Equal(1, rarities["Boss"]);
     }
 
     [Fact]
