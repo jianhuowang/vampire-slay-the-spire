@@ -48,6 +48,27 @@ public sealed class ModPackagingTests
     }
 
     [Fact]
+    public void BuildCopiesReferencedAssembliesToLocalModFolder()
+    {
+        var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
+        var projectText = File.ReadAllText(projectPath);
+
+        Assert.Contains("@(ReferenceCopyLocalPaths)", projectText);
+        Assert.Contains("CopyToModsFolderOnBuild", projectText);
+    }
+
+    [Fact]
+    public void BuildCopiesModResourcesToLocalModFolder()
+    {
+        var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
+        var projectText = File.ReadAllText(projectPath);
+
+        Assert.Contains("<ModResourceFiles Include=\"VampireCrawler/**\" />", projectText);
+        Assert.Contains("@(ModResourceFiles)", projectText);
+        Assert.Contains("%(RecursiveDir)", projectText);
+    }
+
+    [Fact]
     public void ModEntryPointUsesSts2ModInitializer()
     {
         var entryPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "ModEntry", "MainFile.cs");

@@ -54,6 +54,7 @@
     <None Include="Sts2PathDiscovery.props" />
     <None Include="local.props.example" />
     <None Include="VampireCrawler/**" />
+    <ModResourceFiles Include="VampireCrawler/**" />
   </ItemGroup>
 
   <Target Name="CheckDependencyPaths">
@@ -72,6 +73,8 @@
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
+    <Copy SourceFiles="@(ReferenceCopyLocalPaths)" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
+    <Copy SourceFiles="@(ModResourceFiles)" DestinationFiles="@(ModResourceFiles->'$(ModsPath)$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 
 </Project>
