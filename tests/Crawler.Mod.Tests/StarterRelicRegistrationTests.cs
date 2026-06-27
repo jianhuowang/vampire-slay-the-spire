@@ -20,6 +20,7 @@ public sealed class StarterRelicRegistrationTests
         var relicText = File.ReadAllText(relicPath);
 
         Assert.Contains("CustomRelicModel", relicText);
+        Assert.Contains(": base(false)", relicText);
         Assert.Contains("[Pool(typeof(CrawlerRelicPool))]", relicText);
         Assert.Contains("\"relic.png\".RelicImagePath()", relicText);
         Assert.Contains("\"relic_outline.png\".RelicImagePath()", relicText);
