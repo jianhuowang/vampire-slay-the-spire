@@ -187,7 +187,7 @@ public sealed class StarterCardRegistrationTests
             "cards.json");
         var localizationText = File.ReadAllText(localizationPath);
 
-        Assert.Equal(9, CountOccurrences(localizationText, "Chain multiplier applies."));
+        Assert.Equal(12, CountOccurrences(localizationText, "Chain multiplier applies."));
     }
 
     [Fact]

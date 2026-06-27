@@ -16,5 +16,11 @@
   "CRAWLER-SANGUINE_GUARD.title": "Sanguine Guard",
   "CRAWLER-SANGUINE_GUARD.description": "Gain -6-+9+ Block. Chain multiplier applies.",
   "CRAWLER-MAW_STRIKE.title": "Maw Strike",
-  "CRAWLER-MAW_STRIKE.description": "Deal -12-+16+ damage. Apply -1-+2+ Doom. Chain multiplier applies."
+  "CRAWLER-MAW_STRIKE.description": "Deal -12-+16+ damage. Apply -1-+2+ Doom. Chain multiplier applies.",
+  "CRAWLER-HEMATIC_STEP.title": "Hematic Step",
+  "CRAWLER-HEMATIC_STEP.description": "Gain -4-+6+ Block. Chain multiplier applies.",
+  "CRAWLER-BLEEDING_LASH.title": "Bleeding Lash",
+  "CRAWLER-BLEEDING_LASH.description": "Deal -9-+13+ damage. Apply -1-+2+ Weak. Chain multiplier applies.",
+  "CRAWLER-GRAVE_BLOOM.title": "Grave Bloom",
+  "CRAWLER-GRAVE_BLOOM.description": "Apply -2-+3+ Doom. Draw -1 card-+2 cards+. Chain multiplier applies."
 }
