@@ -12,12 +12,7 @@ public sealed class CharacterRegistrationTests
 
         Assert.Contains("ModelRegistrationAdapter ModelRegistration", modText);
         Assert.Contains("ModelRegistration.RegisterModels();", modText);
-
-        var modelRegistrationIndex = modText.IndexOf("ModelRegistration.RegisterModels();", StringComparison.Ordinal);
-        var cardRegistrationIndex = modText.IndexOf("CardRegistration.GetCardDefinitionsForRegistration();", StringComparison.Ordinal);
-        Assert.True(modelRegistrationIndex >= 0);
-        Assert.True(cardRegistrationIndex >= 0);
-        Assert.True(modelRegistrationIndex < cardRegistrationIndex);
+        Assert.DoesNotContain("CardRegistration.GetCardDefinitionsForRegistration();", modText);
     }
 
     [Fact]

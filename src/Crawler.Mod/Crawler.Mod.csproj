@@ -2,11 +2,6 @@
 
   <Import Project=".\Sts2PathDiscovery.props" />
 
-  <ItemGroup>
-    <ProjectReference Include="..\Crawler.Core\Crawler.Core.csproj" />
-    <ProjectReference Include="..\Crawler.Content\Crawler.Content.csproj" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <AssemblyName>VampireCrawler</AssemblyName>
@@ -70,6 +65,8 @@
 
   <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
     <Message Text="Copying .dll, .pdb, and .json to mods folder." Importance="high" />
+    <RemoveDir Directories="$(ModsPath)$(AssemblyName)" Condition="Exists('$(ModsPath)$(AssemblyName)')" />
+    <MakeDir Directories="$(ModsPath)$(AssemblyName)" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(AssemblyName)/" />

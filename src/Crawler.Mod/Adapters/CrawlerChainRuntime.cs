@@ -1,5 +1,4 @@
 using System.Collections.Concurrent;
-using Crawler.Core.Chains;
 using MegaCrit.Sts2.Core.Entities.Players;
 
 namespace Crawler.Mod.Adapters;

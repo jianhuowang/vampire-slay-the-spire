@@ -58,6 +58,16 @@ public sealed class ModPackagingTests
     }
 
     [Fact]
+    public void RuntimeModProjectDoesNotReferenceInternalHelperAssemblies()
+    {
+        var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
+        var projectText = File.ReadAllText(projectPath);
+
+        Assert.DoesNotContain("..\\Crawler.Core\\Crawler.Core.csproj", projectText);
+        Assert.DoesNotContain("..\\Crawler.Content\\Crawler.Content.csproj", projectText);
+    }
+
+    [Fact]
     public void BuildCopiesModResourcesToLocalModFolder()
     {
         var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
@@ -66,6 +76,16 @@ public sealed class ModPackagingTests
         Assert.Contains("<ModResourceFiles Include=\"VampireCrawler/**\" />", projectText);
         Assert.Contains("@(ModResourceFiles)", projectText);
         Assert.Contains("%(RecursiveDir)", projectText);
+    }
+
+    [Fact]
+    public void BuildCleansLocalModFolderBeforeCopying()
+    {
+        var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
+        var projectText = File.ReadAllText(projectPath);
+
+        Assert.Contains("<RemoveDir Directories=\"$(ModsPath)$(AssemblyName)\"", projectText);
+        Assert.Contains("<MakeDir Directories=\"$(ModsPath)$(AssemblyName)\" />", projectText);
     }
 
     [Fact]

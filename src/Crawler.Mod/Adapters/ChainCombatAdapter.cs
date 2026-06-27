@@ -1,5 +1,3 @@
-using Crawler.Core.Chains;
-
 namespace Crawler.Mod.Adapters;
 
 public sealed class ChainCombatAdapter
