@@ -5,14 +5,14 @@ public sealed class UncommonCardRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterInjectsUncommonCards()
+    public void ModelRegistrationAdapterDoesNotInjectUncommonCardsDirectly()
     {
         var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
         var adapterText = File.ReadAllText(adapterPath);
 
-        Assert.Contains("ModelDb.Inject(typeof(HematicStep));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(BleedingLash));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(GraveBloom));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(HematicStep));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(BleedingLash));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(GraveBloom));", adapterText);
     }
 
     [Fact]

@@ -5,14 +5,14 @@ public sealed class CommonCardRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterInjectsCommonCards()
+    public void ModelRegistrationAdapterDoesNotInjectCommonCardsDirectly()
     {
         var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
         var adapterText = File.ReadAllText(adapterPath);
 
-        Assert.Contains("ModelDb.Inject(typeof(BloodTap));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(SanguineGuard));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(MawStrike));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(BloodTap));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(SanguineGuard));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(MawStrike));", adapterText);
     }
 
     [Fact]
