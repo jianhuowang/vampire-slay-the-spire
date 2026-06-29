@@ -5,17 +5,17 @@ public sealed class StarterCardRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterInjectsStarterCards()
+    public void ModelRegistrationAdapterDoesNotInjectStarterCardsDirectly()
     {
         var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
         var adapterText = File.ReadAllText(adapterPath);
 
-        Assert.Contains("ModelDb.Inject(typeof(QuickStab));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(WhipCrack));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(GuardedDash));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(HeavySwing));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(PocketWatch));", adapterText);
-        Assert.Contains("ModelDb.Inject(typeof(BadOmen));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(QuickStab));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(WhipCrack));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(GuardedDash));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(HeavySwing));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(PocketWatch));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(BadOmen));", adapterText);
     }
 
     [Fact]
