@@ -16,12 +16,12 @@ public sealed class CharacterRegistrationTests
     }
 
     [Fact]
-    public void ModelRegistrationAdapterDoesNotInjectCharacterPoolsDirectly()
+    public void ModelRegistrationAdapterDoesNotInjectCharacterStartupModelsDirectly()
     {
         var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
         var adapterText = File.ReadAllText(adapterPath);
 
-        Assert.Contains("ModelDb.Inject(typeof(CrawlerCharacter));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerCharacter));", adapterText);
         Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerCardPool));", adapterText);
         Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerRelicPool));", adapterText);
         Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerPotionPool));", adapterText);
