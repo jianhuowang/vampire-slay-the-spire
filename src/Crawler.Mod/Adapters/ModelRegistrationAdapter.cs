@@ -25,6 +25,5 @@ public sealed class ModelRegistrationAdapter
         ModelDb.Inject(typeof(HematicStep));
         ModelDb.Inject(typeof(BleedingLash));
         ModelDb.Inject(typeof(GraveBloom));
-        ModelDb.Inject(typeof(TurboturnMeter));
     }
 }

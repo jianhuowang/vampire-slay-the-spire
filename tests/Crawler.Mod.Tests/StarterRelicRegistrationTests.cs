@@ -5,12 +5,12 @@ public sealed class StarterRelicRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterInjectsStarterRelic()
+    public void ModelRegistrationAdapterDoesNotInjectStarterRelicDirectly()
     {
         var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
         var adapterText = File.ReadAllText(adapterPath);
 
-        Assert.Contains("ModelDb.Inject(typeof(TurboturnMeter));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(TurboturnMeter));", adapterText);
     }
 
     [Fact]
