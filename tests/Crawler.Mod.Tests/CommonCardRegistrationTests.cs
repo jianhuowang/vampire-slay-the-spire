@@ -5,14 +5,13 @@ public sealed class CommonCardRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterDoesNotInjectCommonCardsDirectly()
+    public void RuntimeModDoesNotInjectCommonCardsDirectly()
     {
-        var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
-        var adapterText = File.ReadAllText(adapterPath);
+        var sourceText = ReadRuntimeModSource();
 
-        Assert.DoesNotContain("ModelDb.Inject(typeof(BloodTap));", adapterText);
-        Assert.DoesNotContain("ModelDb.Inject(typeof(SanguineGuard));", adapterText);
-        Assert.DoesNotContain("ModelDb.Inject(typeof(MawStrike));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(BloodTap));", sourceText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(SanguineGuard));", sourceText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(MawStrike));", sourceText);
     }
 
     [Fact]
@@ -113,5 +112,17 @@ public sealed class CommonCardRegistrationTests
         }
 
         return count;
+    }
+
+    private static string ReadRuntimeModSource()
+    {
+        var sourceRoot = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod");
+        var sourceFiles = Directory.EnumerateFiles(sourceRoot, "*.cs", SearchOption.AllDirectories)
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}obj{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}.godot{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Order(StringComparer.Ordinal);
+
+        return string.Join(Environment.NewLine, sourceFiles.Select(File.ReadAllText));
     }
 }

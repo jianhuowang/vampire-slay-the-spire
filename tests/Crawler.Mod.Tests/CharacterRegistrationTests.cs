@@ -5,26 +5,24 @@ public sealed class CharacterRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModInitializationRegistersCrawlerModelsBeforeLoadingContent()
+    public void ModEntryPointUsesTemplateInitializationOnly()
     {
-        var modPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "CrawlerMod.cs");
-        var modText = File.ReadAllText(modPath);
+        var entryPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "ModEntry", "MainFile.cs");
+        var entryText = File.ReadAllText(entryPath);
 
-        Assert.Contains("ModelRegistrationAdapter ModelRegistration", modText);
-        Assert.Contains("ModelRegistration.RegisterModels();", modText);
-        Assert.DoesNotContain("CardRegistration.GetCardDefinitionsForRegistration();", modText);
+        Assert.Contains("Harmony harmony = new(ModId);", entryText);
+        Assert.Contains("harmony.PatchAll();", entryText);
+        Assert.DoesNotContain("new CrawlerMod().Initialize();", entryText);
+        Assert.DoesNotContain("RegisterModels", entryText);
     }
 
     [Fact]
-    public void ModelRegistrationAdapterDoesNotInjectCharacterStartupModelsDirectly()
+    public void RuntimeModDoesNotUseManualModelInjection()
     {
-        var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
-        var adapterText = File.ReadAllText(adapterPath);
+        var sourceText = ReadRuntimeModSource();
 
-        Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerCharacter));", adapterText);
-        Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerCardPool));", adapterText);
-        Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerRelicPool));", adapterText);
-        Assert.DoesNotContain("ModelDb.Inject(typeof(CrawlerPotionPool));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(", sourceText);
+        Assert.DoesNotContain("ModelRegistrationAdapter", sourceText);
     }
 
     [Fact]
@@ -154,5 +152,17 @@ public sealed class CharacterRegistrationTests
         }
 
         throw new InvalidOperationException("Could not locate repository root.");
+    }
+
+    private static string ReadRuntimeModSource()
+    {
+        var sourceRoot = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod");
+        var sourceFiles = Directory.EnumerateFiles(sourceRoot, "*.cs", SearchOption.AllDirectories)
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}obj{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}.godot{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Order(StringComparer.Ordinal);
+
+        return string.Join(Environment.NewLine, sourceFiles.Select(File.ReadAllText));
     }
 }

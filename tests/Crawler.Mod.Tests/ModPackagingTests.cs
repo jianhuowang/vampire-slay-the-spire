@@ -76,6 +76,21 @@ public sealed class ModPackagingTests
         Assert.Contains("<ModResourceFiles Include=\"VampireCrawler/**\" />", projectText);
         Assert.Contains("@(ModResourceFiles)", projectText);
         Assert.Contains("%(RecursiveDir)", projectText);
+        Assert.Contains("Condition=\"!Exists('$(PckPath)')\"", projectText);
+    }
+
+    [Fact]
+    public void ProjectExportsAndCopiesPckWhenGodotIsConfigured()
+    {
+        var projectPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Crawler.Mod.csproj");
+        var projectText = File.ReadAllText(projectPath);
+
+        Assert.Contains("<PckPath>$(MSBuildProjectDirectory)\\$(AssemblyName).pck</PckPath>", projectText);
+        Assert.Contains("ExportVampireCrawlerPck", projectText);
+        Assert.Contains("Exists('$(GodotPath)')", projectText);
+        Assert.Contains("--export-pack", projectText);
+        Assert.Contains("<Copy SourceFiles=\"$(PckPath)\"", projectText);
+        Assert.Contains("Condition=\"Exists('$(PckPath)')\"", projectText);
     }
 
     [Fact]
@@ -96,7 +111,9 @@ public sealed class ModPackagingTests
 
         Assert.Contains("MegaCrit.Sts2.Core.Modding", entryText);
         Assert.Contains("[ModInitializer(nameof(Initialize))]", entryText);
-        Assert.Contains("new CrawlerMod().Initialize();", entryText);
+        Assert.Contains("harmony.PatchAll();", entryText);
+        Assert.DoesNotContain("new CrawlerMod().Initialize();", entryText);
+        Assert.DoesNotContain("RegisterModels", entryText);
     }
 
     private static DirectoryInfo FindRepositoryRoot()

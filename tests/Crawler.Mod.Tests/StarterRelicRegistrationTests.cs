@@ -5,12 +5,11 @@ public sealed class StarterRelicRegistrationTests
     private static readonly DirectoryInfo RepositoryRoot = FindRepositoryRoot();
 
     [Fact]
-    public void ModelRegistrationAdapterDoesNotInjectStarterRelicDirectly()
+    public void RuntimeModDoesNotInjectStarterRelicDirectly()
     {
-        var adapterPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Adapters", "ModelRegistrationAdapter.cs");
-        var adapterText = File.ReadAllText(adapterPath);
+        var sourceText = ReadRuntimeModSource();
 
-        Assert.DoesNotContain("ModelDb.Inject(typeof(TurboturnMeter));", adapterText);
+        Assert.DoesNotContain("ModelDb.Inject(typeof(TurboturnMeter));", sourceText);
     }
 
     [Fact]
@@ -100,5 +99,17 @@ public sealed class StarterRelicRegistrationTests
         }
 
         throw new InvalidOperationException("Could not locate repository root.");
+    }
+
+    private static string ReadRuntimeModSource()
+    {
+        var sourceRoot = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod");
+        var sourceFiles = Directory.EnumerateFiles(sourceRoot, "*.cs", SearchOption.AllDirectories)
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}obj{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Where(path => !path.Contains($"{Path.DirectorySeparatorChar}.godot{Path.DirectorySeparatorChar}", StringComparison.OrdinalIgnoreCase))
+            .Order(StringComparer.Ordinal);
+
+        return string.Join(Environment.NewLine, sourceFiles.Select(File.ReadAllText));
     }
 }

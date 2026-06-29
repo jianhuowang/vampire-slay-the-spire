@@ -13,6 +13,7 @@
     <GodotDisabledSourceGenerators>GodotPluginsInitializer</GodotDisabledSourceGenerators>
     <NoWarn>$(NoWarn);MSB3270</NoWarn>
     <DefaultItemExcludes>$(DefaultItemExcludes);.godot/**;.godot\**</DefaultItemExcludes>
+    <PckPath>$(MSBuildProjectDirectory)\$(AssemblyName).pck</PckPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(Sts2DataDir)')">
@@ -63,15 +64,24 @@
     </ItemGroup>
   </Target>
 
+  <Target Name="ExportVampireCrawlerPck"
+          BeforeTargets="CopyToModsFolderOnBuild"
+          Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)')">
+    <Message Text="Exporting $(AssemblyName).pck with Godot." Importance="high" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          Command="&quot;$(GodotPath)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --export-pack &quot;BasicExport&quot; &quot;$(PckPath)&quot;" />
+  </Target>
+
   <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
     <Message Text="Copying .dll, .pdb, and .json to mods folder." Importance="high" />
     <RemoveDir Directories="$(ModsPath)$(AssemblyName)" Condition="Exists('$(ModsPath)$(AssemblyName)')" />
     <MakeDir Directories="$(ModsPath)$(AssemblyName)" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
+    <Copy SourceFiles="$(PckPath)" DestinationFolder="$(ModsPath)$(AssemblyName)/" Condition="Exists('$(PckPath)')" />
     <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
     <Copy SourceFiles="@(ReferenceCopyLocalPaths)" DestinationFolder="$(ModsPath)$(AssemblyName)/" />
-    <Copy SourceFiles="@(ModResourceFiles)" DestinationFiles="@(ModResourceFiles->'$(ModsPath)$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Copy SourceFiles="@(ModResourceFiles)" DestinationFiles="@(ModResourceFiles->'$(ModsPath)$(AssemblyName)/%(RecursiveDir)%(Filename)%(Extension)')" Condition="!Exists('$(PckPath)')" />
   </Target>
 
 </Project>
