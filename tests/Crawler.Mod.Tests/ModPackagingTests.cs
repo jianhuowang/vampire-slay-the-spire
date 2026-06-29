@@ -17,7 +17,7 @@ public sealed class ModPackagingTests
         Assert.Equal("VampireCrawler", root.GetProperty("id").GetString());
         Assert.Equal("Vampire Crawlers: The Crawler", root.GetProperty("name").GetString());
         Assert.True(root.GetProperty("has_dll").GetBoolean());
-        Assert.False(root.GetProperty("has_pck").GetBoolean());
+        Assert.True(root.GetProperty("has_pck").GetBoolean());
         Assert.True(root.GetProperty("affects_gameplay").GetBoolean());
 
         var baseLibDependency = root.GetProperty("dependencies")
@@ -35,6 +35,24 @@ public sealed class ModPackagingTests
         Assert.Contains("config/name=\"VampireCrawler\"", projectText);
         Assert.Contains("config/icon=\"res://VampireCrawler/mod_image.png\"", projectText);
         Assert.Contains("project/assembly_name=\"VampireCrawler\"", projectText);
+        Assert.Contains("project/solution_directory=\"../..\"", projectText);
+    }
+
+    [Fact]
+    public void GodotExportPresetKeepsRuntimeSourcesOutOfPck()
+    {
+        var presetPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "export_presets.cfg");
+        var presetText = File.ReadAllText(presetPath);
+
+        Assert.Contains("*.cs", presetText);
+        Assert.Contains("*.csproj", presetText);
+        Assert.Contains("bin/**", presetText);
+        Assert.Contains("obj/**", presetText);
+        Assert.Contains("Adapters/**", presetText);
+        Assert.Contains("Cards/**", presetText);
+        Assert.Contains("Character/**", presetText);
+        Assert.Contains("ModEntry/**", presetText);
+        Assert.Contains("Relics/**", presetText);
     }
 
     [Fact]
@@ -87,7 +105,12 @@ public sealed class ModPackagingTests
 
         Assert.Contains("<PckPath>$(MSBuildProjectDirectory)\\$(AssemblyName).pck</PckPath>", projectText);
         Assert.Contains("ExportVampireCrawlerPck", projectText);
+        Assert.Contains("StageGodotExportRuntimeReferences", projectText);
+        Assert.Contains("$(Sts2DataDir)\\sts2.dll", projectText);
+        Assert.Contains("$(Sts2DataDir)\\0Harmony.dll", projectText);
         Assert.Contains("Exists('$(GodotPath)')", projectText);
+        Assert.Contains("DOTNET_ROOT", projectText);
+        Assert.Contains("$(DotNetRoot)", projectText);
         Assert.Contains("--export-pack", projectText);
         Assert.Contains("<Copy SourceFiles=\"$(PckPath)\"", projectText);
         Assert.Contains("Condition=\"Exists('$(PckPath)')\"", projectText);

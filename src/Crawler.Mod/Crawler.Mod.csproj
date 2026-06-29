@@ -14,6 +14,8 @@
     <NoWarn>$(NoWarn);MSB3270</NoWarn>
     <DefaultItemExcludes>$(DefaultItemExcludes);.godot/**;.godot\**</DefaultItemExcludes>
     <PckPath>$(MSBuildProjectDirectory)\$(AssemblyName).pck</PckPath>
+    <DotNetRoot Condition="'$(DotNetRoot)' == '' and Exists('$(USERPROFILE)\.dotnet\dotnet.exe')">$(USERPROFILE)\.dotnet</DotNetRoot>
+    <GodotExportPrefix Condition="'$(DotNetRoot)' != ''">set &quot;DOTNET_ROOT=$(DotNetRoot)&quot; &amp;&amp; set &quot;PATH=$(DotNetRoot);%PATH%&quot; &amp;&amp; </GodotExportPrefix>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(Sts2DataDir)')">
@@ -64,12 +66,24 @@
     </ItemGroup>
   </Target>
 
+  <Target Name="StageGodotExportRuntimeReferences"
+          BeforeTargets="ExportVampireCrawlerPck"
+          Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)')">
+    <ItemGroup>
+      <GodotExportRuntimeReferences Include="$(Sts2DataDir)\sts2.dll" Condition="Exists('$(Sts2DataDir)\sts2.dll')" />
+      <GodotExportRuntimeReferences Include="$(Sts2DataDir)\0Harmony.dll" Condition="Exists('$(Sts2DataDir)\0Harmony.dll')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(GodotExportRuntimeReferences)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
   <Target Name="ExportVampireCrawlerPck"
           BeforeTargets="CopyToModsFolderOnBuild"
           Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)')">
     <Message Text="Exporting $(AssemblyName).pck with Godot." Importance="high" />
     <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
-          Command="&quot;$(GodotPath)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --export-pack &quot;BasicExport&quot; &quot;$(PckPath)&quot;" />
+          Command="$(GodotExportPrefix)&quot;$(GodotPath)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --export-pack &quot;BasicExport&quot; &quot;$(PckPath)&quot;" />
   </Target>
 
   <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
