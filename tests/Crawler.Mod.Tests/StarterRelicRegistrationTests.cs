@@ -33,6 +33,7 @@ public sealed class StarterRelicRegistrationTests
         var relicText = File.ReadAllText(relicPath);
 
         Assert.Contains("namespace Crawler.Mod.Relics;", relicText);
+        Assert.Contains("[Pool(typeof(CrawlerRelicPool))]", relicText);
         Assert.Contains("public sealed class TurboturnMeter() : CrawlerRelic", relicText);
         Assert.Contains("RelicRarity.Starter", relicText);
     }

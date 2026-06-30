@@ -20,6 +20,7 @@ public sealed class UncommonCardRegistrationTests
         var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "UncommonCards.cs");
         var cardsText = File.ReadAllText(cardsPath);
 
+        Assert.Equal(3, CountOccurrences(cardsText, "[Pool(typeof(CrawlerCardPool))]"));
         Assert.Contains("HematicStep() : CrawlerCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)", cardsText);
         Assert.Contains("BleedingLash() : CrawlerCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)", cardsText);
         Assert.Contains("GraveBloom() : CrawlerCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)", cardsText);

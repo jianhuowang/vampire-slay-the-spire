@@ -20,6 +20,7 @@ public sealed class CommonCardRegistrationTests
         var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "CommonCards.cs");
         var cardsText = File.ReadAllText(cardsPath);
 
+        Assert.Equal(3, CountOccurrences(cardsText, "[Pool(typeof(CrawlerCardPool))]"));
         Assert.Contains("BloodTap() : CrawlerCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)", cardsText);
         Assert.Contains("SanguineGuard() : CrawlerCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)", cardsText);
         Assert.Contains("MawStrike() : CrawlerCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)", cardsText);

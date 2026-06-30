@@ -51,6 +51,7 @@ public sealed class StarterCardRegistrationTests
         var cardsPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Cards", "StarterCards.cs");
         var cardsText = File.ReadAllText(cardsPath);
 
+        Assert.Equal(6, CountOccurrences(cardsText, "[Pool(typeof(CrawlerCardPool))]"));
         Assert.Contains("QuickStab() : CrawlerCard(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)", cardsText);
         Assert.Contains("WhipCrack() : CrawlerCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)", cardsText);
         Assert.Contains("GuardedDash() : CrawlerCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)", cardsText);

@@ -1,4 +1,6 @@
+using BaseLib.Utils;
 using Crawler.Mod.Adapters;
+using Crawler.Mod.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -6,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace Crawler.Mod.Relics;
 
+[Pool(typeof(CrawlerRelicPool))]
 public sealed class TurboturnMeter() : CrawlerRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
