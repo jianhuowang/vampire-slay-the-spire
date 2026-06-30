@@ -17,6 +17,8 @@ public sealed class StarterRelicRegistrationTests
     {
         var relicPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Relics", "CrawlerRelic.cs");
         var relicText = File.ReadAllText(relicPath);
+        var relicPoolPath = Path.Combine(RepositoryRoot.FullName, "src", "Crawler.Mod", "Character", "CrawlerRelicPool.cs");
+        var relicPoolText = File.ReadAllText(relicPoolPath);
 
         Assert.Contains("CustomRelicModel", relicText);
         Assert.Contains(": base(false)", relicText);
@@ -24,6 +26,8 @@ public sealed class StarterRelicRegistrationTests
         Assert.Contains("\"relic.png\".RelicImagePath()", relicText);
         Assert.Contains("\"relic_outline.png\".RelicImagePath()", relicText);
         Assert.Contains("\"relic.png\".BigRelicImagePath()", relicText);
+        Assert.Contains("GenerateAllRelics()", relicPoolText);
+        Assert.Contains("ModelDb.Relic<TurboturnMeter>()", relicPoolText);
     }
 
     [Fact]
