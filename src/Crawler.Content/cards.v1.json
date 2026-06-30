@@ -1,0 +1,766 @@
+[
+  {
+    "id": "crawler_quick_stab",
+    "name": "Quick Stab",
+    "cost": 0,
+    "route": "Weapon",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "damage", "baseValue": 5 }
+    ],
+    "tags": [ "starter" ]
+  },
+  {
+    "id": "crawler_whip_crack",
+    "name": "Whip Crack",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "damage", "baseValue": 8 },
+      { "key": "weak", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "starter" ]
+  },
+  {
+    "id": "crawler_guarded_dash",
+    "name": "Guarded Dash",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "block", "baseValue": 7 }
+    ],
+    "tags": [ "starter", "mobility" ]
+  },
+  {
+    "id": "crawler_heavy_swing",
+    "name": "Heavy Swing",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "damage", "baseValue": 14 }
+    ],
+    "tags": [ "starter" ]
+  },
+  {
+    "id": "crawler_pocket_watch",
+    "name": "Pocket Watch",
+    "cost": 0,
+    "route": "Item",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "starter", "wildcard" ]
+  },
+  {
+    "id": "crawler_bad_omen",
+    "name": "Bad Omen",
+    "cost": 1,
+    "route": "Curse",
+    "rarity": "Starter",
+    "effects": [
+      { "key": "doom", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "starter", "hex" ]
+  },
+  {
+    "id": "crawler_serrated_lunge",
+    "name": "Serrated Lunge",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 7 },
+      { "key": "bleed", "baseValue": 2 }
+    ],
+    "tags": [ "bleed" ]
+  },
+  {
+    "id": "crawler_iron_barrage",
+    "name": "Iron Barrage",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 11 }
+    ],
+    "tags": [ "barrage" ]
+  },
+  {
+    "id": "crawler_chain_hook",
+    "name": "Chain Hook",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 6 },
+      { "key": "pull", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "control" ]
+  },
+  {
+    "id": "crawler_cleaver_arc",
+    "name": "Cleaver Arc",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 12 }
+    ],
+    "tags": [ "sweep" ]
+  },
+  {
+    "id": "crawler_blood_rush",
+    "name": "Blood Rush",
+    "cost": 0,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 4 },
+      { "key": "chain", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "chain" ]
+  },
+  {
+    "id": "crawler_hunters_mark",
+    "name": "Hunter's Mark",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 5 },
+      { "key": "vulnerable", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "setup" ]
+  },
+  {
+    "id": "crawler_butcher_spin",
+    "name": "Butcher Spin",
+    "cost": 3,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 18 }
+    ],
+    "tags": [ "sweep" ]
+  },
+  {
+    "id": "crawler_bone_splitter",
+    "name": "Bone Splitter",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 13 }
+    ],
+    "tags": [ "burst" ]
+  },
+  {
+    "id": "crawler_jagged_feint",
+    "name": "Jagged Feint",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 6 },
+      { "key": "block", "baseValue": 4 }
+    ],
+    "tags": [ "tempo" ]
+  },
+  {
+    "id": "crawler_harpoon_drive",
+    "name": "Harpoon Drive",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 12 },
+      { "key": "stun", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "control" ]
+  },
+  {
+    "id": "crawler_reaping_slash",
+    "name": "Reaping Slash",
+    "cost": 3,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 16 },
+      { "key": "heal", "baseValue": 3, "isMultiplierEligible": false }
+    ],
+    "tags": [ "drain" ]
+  },
+  {
+    "id": "crawler_tendon_rip",
+    "name": "Tendon Rip",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 10 },
+      { "key": "slow", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "cripple" ]
+  },
+  {
+    "id": "crawler_skull_rattle",
+    "name": "Skull Rattle",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 7 },
+      { "key": "fragile", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "debuff" ]
+  },
+  {
+    "id": "crawler_puncture_line",
+    "name": "Puncture Line",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 6 },
+      { "key": "bleed", "baseValue": 3 }
+    ],
+    "tags": [ "bleed" ]
+  },
+  {
+    "id": "crawler_fang_volley",
+    "name": "Fang Volley",
+    "cost": 0,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 8 }
+    ],
+    "tags": [ "multi" ]
+  },
+  {
+    "id": "crawler_brutal_overhead",
+    "name": "Brutal Overhead",
+    "cost": 3,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 20 }
+    ],
+    "tags": [ "burst" ]
+  },
+  {
+    "id": "crawler_rusted_guillotine",
+    "name": "Rusted Guillotine",
+    "cost": 4,
+    "route": "Weapon",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "damage", "baseValue": 28 }
+    ],
+    "tags": [ "finisher" ]
+  },
+  {
+    "id": "crawler_ambush_blades",
+    "name": "Ambush Blades",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 9 },
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "ambush" ]
+  },
+  {
+    "id": "crawler_flensing_cut",
+    "name": "Flensing Cut",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 8 },
+      { "key": "bleed", "baseValue": 2 }
+    ],
+    "tags": [ "bleed" ]
+  },
+  {
+    "id": "crawler_predator_pounce",
+    "name": "Predator Pounce",
+    "cost": 2,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 12 },
+      { "key": "bonusIfFirst", "baseValue": 4, "isMultiplierEligible": false }
+    ],
+    "tags": [ "opener" ]
+  },
+  {
+    "id": "crawler_hooked_uppercut",
+    "name": "Hooked Uppercut",
+    "cost": 3,
+    "route": "Weapon",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "damage", "baseValue": 17 },
+      { "key": "weak", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "control" ]
+  },
+  {
+    "id": "crawler_tripwire_stab",
+    "name": "Tripwire Stab",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 6 },
+      { "key": "slow", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "trap" ]
+  },
+  {
+    "id": "crawler_crimson_crescent",
+    "name": "Crimson Crescent",
+    "cost": 3,
+    "route": "Weapon",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "damage", "baseValue": 19 },
+      { "key": "bleed", "baseValue": 4 }
+    ],
+    "tags": [ "bleed", "finisher" ]
+  },
+  {
+    "id": "crawler_executioners_stride",
+    "name": "Executioner's Stride",
+    "cost": 1,
+    "route": "Weapon",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "damage", "baseValue": 9 },
+      { "key": "energyNextTurn", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "momentum" ]
+  },
+  {
+    "id": "crawler_smoke_bomb",
+    "name": "Smoke Bomb",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "block", "baseValue": 5 },
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "utility" ]
+  },
+  {
+    "id": "crawler_salvage_kit",
+    "name": "Salvage Kit",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "block", "baseValue": 8 },
+      { "key": "wildcardBoost", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "wildcard" ]
+  },
+  {
+    "id": "crawler_mirror_shard",
+    "name": "Mirror Shard",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "copyNext", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "echo" ]
+  },
+  {
+    "id": "crawler_loaded_dice",
+    "name": "Loaded Dice",
+    "cost": 0,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "wildcardBoost", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "wildcard" ]
+  },
+  {
+    "id": "crawler_barbed_net",
+    "name": "Barbed Net",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "damage", "baseValue": 5 },
+      { "key": "slow", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "trap" ]
+  },
+  {
+    "id": "crawler_tonic_belt",
+    "name": "Tonic Belt",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "heal", "baseValue": 5, "isMultiplierEligible": false }
+    ],
+    "tags": [ "recovery" ]
+  },
+  {
+    "id": "crawler_flash_powder",
+    "name": "Flash Powder",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "weak", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "utility" ]
+  },
+  {
+    "id": "crawler_escape_rope",
+    "name": "Escape Rope",
+    "cost": 0,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "block", "baseValue": 4 },
+      { "key": "chain", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "mobility" ]
+  },
+  {
+    "id": "crawler_grafted_plating",
+    "name": "Grafted Plating",
+    "cost": 3,
+    "route": "Item",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "block", "baseValue": 15 }
+    ],
+    "tags": [ "armor" ]
+  },
+  {
+    "id": "crawler_spring_boots",
+    "name": "Spring Boots",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "block", "baseValue": 6 },
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "mobility" ]
+  },
+  {
+    "id": "crawler_poison_vial",
+    "name": "Poison Vial",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "poison", "baseValue": 4 }
+    ],
+    "tags": [ "poison" ]
+  },
+  {
+    "id": "crawler_iron_rations",
+    "name": "Iron Rations",
+    "cost": 0,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "heal", "baseValue": 3, "isMultiplierEligible": false }
+    ],
+    "tags": [ "recovery" ]
+  },
+  {
+    "id": "crawler_map_fragment",
+    "name": "Map Fragment",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "draw", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "scout" ]
+  },
+  {
+    "id": "crawler_trap_manual",
+    "name": "Trap Manual",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "trapDamage", "baseValue": 10 }
+    ],
+    "tags": [ "trap" ]
+  },
+  {
+    "id": "crawler_stitched_satchel",
+    "name": "Stitched Satchel",
+    "cost": 1,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "block", "baseValue": 5 },
+      { "key": "retain", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "utility" ]
+  },
+  {
+    "id": "crawler_time_capsule",
+    "name": "Time Capsule",
+    "cost": 3,
+    "route": "Item",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "draw", "baseValue": 3, "isMultiplierEligible": false },
+      { "key": "energyNextTurn", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "tempo", "wildcard" ]
+  },
+  {
+    "id": "crawler_shadow_cloak",
+    "name": "Shadow Cloak",
+    "cost": 2,
+    "route": "Item",
+    "rarity": "Uncommon",
+    "effects": [
+      { "key": "block", "baseValue": 10 },
+      { "key": "stealth", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "defense" ]
+  },
+  {
+    "id": "crawler_decoy_totem",
+    "name": "Decoy Totem",
+    "cost": 3,
+    "route": "Item",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "block", "baseValue": 9 },
+      { "key": "weak", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "control" ]
+  },
+  {
+    "id": "crawler_emergency_flask",
+    "name": "Emergency Flask",
+    "cost": 0,
+    "route": "Item",
+    "rarity": "Common",
+    "effects": [
+      { "key": "heal", "baseValue": 2, "isMultiplierEligible": false },
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "recovery" ]
+  },
+  {
+    "id": "crawler_lantern_cache",
+    "name": "Lantern Cache",
+    "cost": 4,
+    "route": "Item",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "draw", "baseValue": 4, "isMultiplierEligible": false },
+      { "key": "wildcardBoost", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "wildcard", "setup" ]
+  },
+  {
+    "id": "crawler_alchemists_case",
+    "name": "Alchemist's Case",
+    "cost": 4,
+    "route": "Item",
+    "rarity": "Rare",
+    "effects": [
+      { "key": "poison", "baseValue": 8 },
+      { "key": "weak", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "poison" ]
+  },
+  {
+    "id": "crawler_creeping_dread",
+    "name": "Creeping Dread",
+    "cost": 2,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "doom", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "hex" ]
+  },
+  {
+    "id": "crawler_brittle_fate",
+    "name": "Brittle Fate",
+    "cost": 1,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "fragile", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "decay" ]
+  },
+  {
+    "id": "crawler_hexed_chains",
+    "name": "Hexed Chains",
+    "cost": 3,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "slow", "baseValue": 3, "isMultiplierEligible": false }
+    ],
+    "tags": [ "hex" ]
+  },
+  {
+    "id": "crawler_void_hunger",
+    "name": "Void Hunger",
+    "cost": 2,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "discard", "baseValue": 1, "isMultiplierEligible": false },
+      { "key": "doom", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "void" ]
+  },
+  {
+    "id": "crawler_splintered_luck",
+    "name": "Splintered Luck",
+    "cost": 0,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "wildcardPenalty", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "wildcard", "hex" ]
+  },
+  {
+    "id": "crawler_grave_whisper",
+    "name": "Grave Whisper",
+    "cost": 1,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "weak", "baseValue": 1, "isMultiplierEligible": false },
+      { "key": "doom", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "hex" ]
+  },
+  {
+    "id": "crawler_doomed_ritual",
+    "name": "Doomed Ritual",
+    "cost": 2,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "doom", "baseValue": 2, "isMultiplierEligible": false },
+      { "key": "draw", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "ritual" ]
+  },
+  {
+    "id": "crawler_blackened_heart",
+    "name": "Blackened Heart",
+    "cost": 4,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "selfDamage", "baseValue": 6, "isMultiplierEligible": false },
+      { "key": "doom", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "void" ]
+  },
+  {
+    "id": "crawler_cursed_echo",
+    "name": "Cursed Echo",
+    "cost": 3,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "repeatLastPenalty", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "echo" ]
+  },
+  {
+    "id": "crawler_rotbloom",
+    "name": "Rotbloom",
+    "cost": 2,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "poison", "baseValue": 5 }
+    ],
+    "tags": [ "poison", "decay" ]
+  },
+  {
+    "id": "crawler_panic_spiral",
+    "name": "Panic Spiral",
+    "cost": 1,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "discard", "baseValue": 2, "isMultiplierEligible": false }
+    ],
+    "tags": [ "panic" ]
+  },
+  {
+    "id": "crawler_ruinous_delay",
+    "name": "Ruinous Delay",
+    "cost": 3,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "stun", "baseValue": 1, "isMultiplierEligible": false },
+      { "key": "doom", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "hex" ]
+  },
+  {
+    "id": "crawler_hollow_bargain",
+    "name": "Hollow Bargain",
+    "cost": 2,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "draw", "baseValue": 2, "isMultiplierEligible": false },
+      { "key": "selfDamage", "baseValue": 4, "isMultiplierEligible": false }
+    ],
+    "tags": [ "void" ]
+  },
+  {
+    "id": "crawler_omen_tithe",
+    "name": "Omen Tithe",
+    "cost": 1,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "doom", "baseValue": 1, "isMultiplierEligible": false },
+      { "key": "energyLoss", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "tax" ]
+  },
+  {
+    "id": "crawler_shiver_mark",
+    "name": "Shiver Mark",
+    "cost": 3,
+    "route": "Curse",
+    "rarity": "Curse",
+    "effects": [
+      { "key": "weak", "baseValue": 2, "isMultiplierEligible": false },
+      { "key": "slow", "baseValue": 1, "isMultiplierEligible": false }
+    ],
+    "tags": [ "hex" ]
+  }
+]

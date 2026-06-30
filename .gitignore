@@ -1,1 +1,8 @@
 .worktrees/
+.superpowers/
+bin/
+obj/
+local.props
+.godot/
+*.pck
+*.uid
